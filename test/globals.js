@@ -179,5 +179,7 @@ Object.assign(global, {
   ast,
   jscs,
   match,
-  matchObj
+  matchObj,
+  fs,
+  path
 });

@@ -21,4 +21,4 @@ In `bin/www` inside the callback for the `wss` "connection" event, add a listene
 
 ## Send a simple WebSocket echo message to the client
 TASK: 5
-In `bin/www` inside the `ws.on("message", ...)` callback, add an echo back to the client. Do this by calling the `ws.send()` function and passing a string such as "Hello from the server!" with the `message` appended to the end. The string should evaluate to something like "Hello from the server! You sent: Hello from the client".
+In `bin/www` inside the `ws.on("message", ...)` callback, add an echo back to the client. Do this by calling the `ws.send()` function and passing the string `"Hello from the server! You sent: "` with the `message` parameter appended to the end. For example, if the `message` from the client was `"Hello from the client"` the string sent from the server should evaluate to `"Hello from the server! You sent: Hello from the client"`.
