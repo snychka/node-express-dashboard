@@ -1,38 +1,24 @@
-# Adding the Websocket-based log viewer window
+# Configuring Websockets on the server
 
-## Add a panel
-TASK 1:
-In `views/index.ejs` inside the existing `<div>` with class `container` below the title header, add another `<div>` element with classes of `panel` and `panel-default`. The `panel` and `panel-default` classes along with all other CSS classes used in this project are [Bootstrap classes](https://www.w3schools.com/bootstrap/default.asp)
+## Require the ws library
+TASK: 1
+In `bin/www`, require the built-in Node library `ws`, and store a reference to it 
+in a `const` called `WebSocket`.
 
-## Add a panel header
-TASK 2: 
-In `views/index.ejs` inside the panel `<div>` created above, add another `<div>` with a class of `panel-heading`. For the `<div>` content add the text `"Log Viewer"`. 
+## Create a Websocket using the existing Express server configuration
+TASK: 1
+In `bin/www` after the http `server` variable is created , add a `const` called `wss` and assign it to a new 
+`WebSocket.Server` instance. The `WebSocket.Server` constructor requires an `options` object as an argument that conforms to the [`WebSocket.ServerOptions` interface.] (https://github.com/websockets/ws/blob/master/doc/ws.md#new-websocketserveroptions-callback) Use the existing http `server` variable
+for the `options` object's `server` property.
 
-## Add the log window
-TASK 3: 
-In `views/index.ejs` inside the `panel` `<div>` and after the `panel-heading` `<div>`, add a `<div>` with class `panel-body` and an `id` of `log-window`. For the `<div>` content add the text `"No logs to show"`.
+## Register a listener for the WebSocket server "connection" event
+TASK: 3
+In `bin/www` after the `server.listen()` and `server.on()` function calls, add a listener for the WebSocket server "connection" event. Do this by invoking the `wss.on()` function and passing the string "connection" as the first argument and a callback function as the second argument with `ws` as the callback's single parameter.
 
-## Create the log viewer javascript file
-TASK 4:
-At the root of the project create a directory called `public`. Inside that directory create a directory called `javascripts`. Inside the `public/javascripts` directory create a file called `log-viewer.js`
+## Register a listener for the WebSocket "message" event
+TASK: 4
+In `bin/www` inside the callback for the `wss` "connection" event, add a listener for the "message" event of the `ws` callback parameter added in the previous step. Do this by invoking the `ws.on()` function passing the string "message" as the first argument and a callback function as the second argument with `message` as the callback's single parameter.
 
-## Add the javascript file as a script on index.ejs
-TASK 5:
-In `views/index.ejs` after the closing `container` `<div>` tag, add a `<script>` tag and assign its `src` attribute to the static path of the `log-viewer.js` file `"/scripts/log-viewer.js"`. **Note**: the static assets directory is configured in `app.js` using the `express.static()` function.
-
-## Create a WebSocket client connection object
-TASK 6:
-In `public/javascripts/log-viewer.js` create a `const` called `connection` and assign it to a new `WebSocket` instance passing the string `"ws://localhost:3000"` as the `WebSocket` constructor parameter. **Note**: `WebSocket` is part of the [web API](https://developer.mozilla.org/en-US/docs/Web/API/Websockets_API) and is provided by the browser so no need for a `require`.
-
-## Get a reference to the log window
-TASK 7: 
-In `public/javascripts/log-viewer.js` create a `const` called `logWindow` and assign it as a reference to the `<div>` with `id="log-window"` using the `document.querySelector()` function.
-
-## Send a message to the WebSocket server
-TASK 8: 
-In `public/javascripts/log-viewer.js` after the `const` declarations, assign a function to the `connection` object's `onopen` [event handler property](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/onopen) that sends a message to the server using the `connection.send()` function. Send the message `"Hello from the client!"`.
-
-## Display the returned message in the log window
-TASK 9: 
-In `public/javascripts/log-viewer.js` after the `connection.onopen` assignment, assign a function with a parameter called `event` to the `connection` object's `onmessage` [event handler property](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/onmessage). The function should set the `innerHTML` property of the `logWindow` element to a string of the value of the `data` property of the `event` parameter. Format the string with a `<br>` tag before and after `event.data`. 
-
+## Send a simple WebSocket echo message to the client
+TASK: 5
+In `bin/www` inside the `ws.on("message", ...)` callback, add an echo back to the client. Do this by calling the `ws.send()` function and passing the string `"Hello from the server! You sent: "` with the `message` parameter appended to the end. For example, if the `message` from the client was `"Hello from the client"` the string sent from the server should evaluate to `"Hello from the server! You sent: Hello from the client"`.

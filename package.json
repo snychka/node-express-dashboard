@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "DEBUG=log-dashboard:server node ./bin/www & node ./log-generator/log-generator.js",
-    "test:module1": "cross-env NODE_ENV=test mocha --exit './test/module1/*.spec.js' || true",
-    "test:module2": "cross-env NODE_ENV=test mocha --exit './test/module2/*.spec.js' || true"
+    "test:module2": "cross-env NODE_ENV=test mocha --exit './test/module2/*.spec.js' || true",
+    "test:module3": "cross-env NODE_ENV=test mocha --exit './test/module3/*.spec.js' || true"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
