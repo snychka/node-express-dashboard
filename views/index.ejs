@@ -1,7 +1,13 @@
 <%- include("header") %>
 
   <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">Log Viewer</div>
+      <div class="panel-body" id="log-window">No logs to show</div>
+    </div>
     <h1><%= title %></h1>
   </div>
+
+  <script src="/javascripts/log-viewer.js"></script>
 
 <%- include("footer") %>
