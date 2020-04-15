@@ -18,5 +18,7 @@ connection.onopen = function() {
 
 //connection.onmessage= function(event) {logWindow.innerHTML = event.data;}
 connection.onmessage = (event) => {
-  logWindow.innerHTML = event.data
+  //logWindow.innerHTML = event.data;
+  const logs = event.data.split('\n').join('<hr>');
+  logWindow.innerHTML = logs;
 }
