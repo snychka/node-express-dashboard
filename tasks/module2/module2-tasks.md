@@ -1,9 +1,8 @@
 # Configuring Websockets on the server
 
-## Require the ws library
+## Require the ws module
 TASK: 1
-In `bin/www`, require the built-in Node library `ws`, and store a reference to it 
-in a `const` called `WebSocket`.
+In `bin/www`, require the `ws` module and store a reference to it in a `const` called `WebSocket`. The `ws` module is imported via `package.json` and its npm package can be found [here](https://www.npmjs.com/package/ws)
 
 ## Create a Websocket using the existing Express server configuration
 TASK: 1

@@ -2,7 +2,7 @@
 
 ## Add a panel
 TASK 1:
-In `views/index.ejs` inside the existing `<div>` with class `container` below the title header, add another `<div>` element with classes of `panel` and `panel-default`. The `panel` and `panel-default` classes along with all other CSS classes used in this project are [Bootstrap classes](https://www.w3schools.com/bootstrap/default.asp)
+In `views/index.ejs` inside the existing `div` with class `container`, add another `div` element with classes of `panel` and `panel-default`. The `panel` and `panel-default` classes along with all other CSS classes used in this project are [Bootstrap classes](https://www.w3schools.com/bootstrap/default.asp)
 
 ## Add a panel header
 TASK 2: 
@@ -14,7 +14,7 @@ In `views/index.ejs` inside the `panel` `<div>` and after the `panel-heading` `<
 
 ## Create the log viewer javascript file
 TASK 4:
-At the root of the project create a directory called `public`. Inside that directory create a directory called `javascripts`. Inside the `public/javascripts` directory create a file called `log-viewer.js`
+Inside the `public/javascripts` directory create a file called `log-viewer.js`
 
 ## Add the javascript file as a script on index.ejs
 TASK 5:
@@ -34,5 +34,5 @@ In `public/javascripts/log-viewer.js` after the `const` declarations, assign a f
 
 ## Display the returned message in the log window
 TASK 9: 
-In `public/javascripts/log-viewer.js` after the `connection.onopen` assignment, assign a function with a parameter called `event` to the `connection` object's `onmessage` [event handler property](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/onmessage). The function should set the `innerHTML` property of the `logWindow` element to a string of the value of the `data` property of the `event` parameter. Format the string with a `<br>` tag before and after `event.data`. 
+In `public/javascripts/log-viewer.js` after the `connection.onopen` assignment, assign a function with a parameter called `event` to the `connection` object's `onmessage` [event handler property](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/onmessage). The function should set the `innerHTML` property of the `logWindow` element to a string of the value of the `data` property of the `event` parameter. 
 

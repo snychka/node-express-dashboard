@@ -25,8 +25,8 @@ describe('log-viewer.js', () => {
     const onmessageMatch = {
       "right.body.body[0].expression.left.object.name": "logWindow",
       "right.body.body[0].expression.left.property.name": "innerHTML",
-      "right.body.body[0].expression.right.expressions[0].object.name": "event",
-      "right.body.body[0].expression.right.expressions[0].property.name" : "data"
+      "right.body.body[0].expression.right.object.name": "event",
+      "right.body.body[0].expression.right.property.name" : "data"
     }
     assert(matchObj(onmessage, onmessageMatch), 'Are you setting the `innerHTML` property of `logWindow` to `event.data`?');
   });
