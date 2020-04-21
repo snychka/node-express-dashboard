@@ -6,7 +6,9 @@
     "start": "DEBUG=log-dashboard:server node ./bin/www & node ./log-generator/log-generator.js",
     "test:module2": "cross-env NODE_ENV=test mocha --exit './test/module2/*.spec.js' || true",
     "test:module3": "cross-env NODE_ENV=test mocha --exit './test/module3/*.spec.js' || true",
-    "test:module4": "cross-env NODE_ENV=test mocha --exit './test/module4/*.spec.js' || true"
+    "test:module4": "cross-env NODE_ENV=test mocha --exit './test/module4/*.spec.js' || true",
+    "test:module5": "cross-env NODE_ENV=test mocha --exit './test/module5/*.spec.js' || true",
+    "test:module6": "cross-env NODE_ENV=test mocha --exit './test/module6/*.spec.js' || true"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
