@@ -43,7 +43,7 @@ function readDir(currentDir, res, query) {
 
 exports.get = (req, res) => {
   let currentDir = dir;
-  const query = req.query.path || "":
+  const query = req.query.path || "";
   if (query) {
     currentDir = path.join(currentDir, query);
   }
