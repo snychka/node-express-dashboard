@@ -12,17 +12,17 @@ describe('bin/www', () => {
     const logs = onData.findCall('join');
     const logsMatch = {
       "callee.object.callee.property.name": "reverse",
-      "callee.object.callee.object.name": "logs",
+      "callee.object.callee.object.name": "logsArr",
       "arguments[0].value": "\n"
     };
     assert(matchObj(logs, logsMatch), 
-      'Are you reversing the `logs` array and converting it back to a `string` with newline delimiters?');
+      'Are you reversing the `logsArr` array and converting it back to a `string` with newline delimiters?');
 
     const send = onData.findCall('send');
     const sendMatch = {
       'callee.object.name': 'ws',
       'callee.property.name': 'send',
-      'arguments[0].name': "logs"
+      'arguments[0].name': "logsStr"
     };
     assert(matchObj(send, sendMatch), 'Are you sending `logs` back to the client?');
   });

@@ -1,5 +1,5 @@
 describe('bin/www', () => {
-  it('should contain ws "message" listener @www-register-message-listener', () => {
+  it('should contain ws `message` listener @www-register-message-listener', () => {
     const connection = ast.findLiteral('connection');
     try {
       connection.findCall("on")
@@ -16,7 +16,7 @@ describe('bin/www', () => {
     assert(matchObj(message, messageMatch), 'Are you adding an `on` event listener to `ws` that listens for the `message` event?');
     
     const messageArrowFunction = { 
-      'arguments.1.type': 'ArrowFunctionExpression', 
+      'arguments.1.type': 'ArrowFunctionExpression',
       'arguments.1.params.0.name': 'message'
     };
     const messageHandlerFunction = { 

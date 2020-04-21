@@ -1,7 +1,7 @@
 # Displaying a log file in real-time
 
 ## Add file path as a query string
-In `routes/index.ejs` on the route for `index` in the `options` object (the second argument to `res.render()`), add a property called `logFile` and assign it to the value of the HTTP request's `logFile` query parameter, e.g. `res.query.logFile`.
+In `routes/index.js` on the route for `"/"` in the `options` object (the second argument to `res.render()`), add a property called `logFile` and assign to it the value of the HTTP request's `logFile` query parameter (`res.query.logFile`).
 
 ## Add a hidden input tag for the log file path
 In `views/index.ejs` after the last `</div>` tag and before the `<script>` tag, add a hidden `<input>` tag with attributes `id="logFilePath"` and `value="<%= logFile %>"`. The `logFile` in the `value` attribute references the `logFile` property we passed from the route in `index.js`.

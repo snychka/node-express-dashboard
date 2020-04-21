@@ -9,7 +9,7 @@ describe('bin/www', () => {
     const onData = message.findCall("on")
     assert(onData.length, 'Are you registering an event handler for the `ReadStream` instance\'s `"data"` event.')
 
-    const logs = onData.findVariable('logs');
+    const logs = onData.findVariable('logsArr');
     const logsMatch = {
       "type": "VariableDeclarator",
       "init.callee.object.callee.object.name": "chunk",
@@ -18,6 +18,6 @@ describe('bin/www', () => {
       "init.arguments[0].value": "\n"
     };
     assert(matchObj(logs, logsMatch), 
-      'Are you splitting `chunk` on newlines ("\n") and assigning the array to a `let` binding called `logs`');
+      'Are you splitting `chunk` on newlines ("\n") and assigning the array to a `let` binding called `logsArr`');
   });
 });
