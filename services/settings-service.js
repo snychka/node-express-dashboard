@@ -21,9 +21,21 @@ function writeSettings(newSettings) {
 }
 
 function getDefaultDir() {
+  const defaultDir = getSettings().defaultDir;
+  if (!defaultDir) {
+    return process.cwd();
+  }
+  return isValidDir(defaultDir) ? defaultDir : process.cwd();
 }
 
 function isValidDir(dirPath) {
+  try {
+    fs.readdirSync( dirPath);
+    return true;
+  //} catch() {
+  } catch {
+    return false;
+  }
 }
 
 module.exports = {

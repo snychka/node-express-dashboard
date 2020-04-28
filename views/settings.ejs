@@ -1,0 +1,36 @@
+<%- include("header") %>
+
+  <div class="container">
+    <h1><%= title %></h1>
+    <a href="/">Home</a><br>
+
+    <% if (locals.errors) { %>
+      <div class="alert alert-danger alert-dismissible">
+        <%= errors %>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      </div>
+    <% } %>
+
+    <% if (locals.message) { %>
+      <div class="alert alert-success alert-dismissible">
+        <%= message %>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      </div>
+    <% } %>
+
+  </div>
+
+  <form id="settingsForm" class="container" method="POST" action="/settings">
+    <div class="form-group">
+      <label for="defaultDir">Default Directory:</label>
+      <input type="text" class="form-control" name="defaultDir" aria-describedby="defaultDir" value=<%= settings.defaultDir %>>
+      <small id="defaultDirHelp" class="form-text text-muted">The absolute directory path</small><br>
+    </div>
+    <div class="form-group">
+      <label for="filter">Default Filter:</label>
+      <input type="text" class="form-control" name="filter" value=<%= settings.filter %>>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<%- include("footer") %>
