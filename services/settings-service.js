@@ -14,8 +14,8 @@ function writeSettings(newSettings) {
   try {
     fs.writeFileSync( settingsFilePath, settingsJSON );
     return true;
-  } catch() {
-  //} catch {
+  //} catch() {
+  } catch {
     return false;
   }
 }
