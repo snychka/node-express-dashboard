@@ -12,7 +12,7 @@ describe('services/select-file-service.js', () => {
     }
 
     assert(fsReadDir.length && matchObj(fsReadDir, fsReadDirMatch),
-      "Are you using `fs.readdir()` to read the current directory?")
+      "Are you using `fs.readdir()` (all lowercase) to read the current directory?")
 
     const fsReadDirArrowFunction = {
       'arguments.1.type': 'ArrowFunctionExpression',

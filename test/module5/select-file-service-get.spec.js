@@ -17,8 +17,16 @@ describe('services/select-file-service.js', () => {
       "init.left.property.name": "path"
     }
 
-    assert(query.length && matchObj(query, queryMatch),
-      "Are you assigning a variable named `query` correctly?")
+    const queryMatchTernary = {
+      "init.alternate.value": "",
+      "init.test.object.object.name": "req",
+      "init.test.object.property.name": "query",
+      "init.test.property.name": "path"
+    }
+
+    assert(query.length && (matchObj(query, queryMatchTernary) || matchObj(query, queryMatch)),
+      "Are you assigning a `const` named `query` correctly? Make sure to use the `||` operator, " +
+      "e.g. `req.query.path || \"\"` or a ternary operator.")
 
     const ifStatement = get.findIf()
     assert(
