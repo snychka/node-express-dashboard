@@ -181,5 +181,6 @@ Object.assign(global, {
   match,
   matchObj,
   fs,
-  path
+  path,
+  rewire
 });
